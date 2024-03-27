@@ -15,11 +15,11 @@ env:
   PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   SAM_TEMPLATE: template.yaml
   TESTING_STACK_NAME: dev-new-cs2p-sam-app
-  TESTING_ARTIFACTS_BUCKET: arn:aws:s3:::new-cs2p-deploy
+  TESTING_ARTIFACTS_BUCKET: new-cs2p-deploy
   TESTING_REGION: ap-southeast-1
 
   PROD_STACK_NAME: prod-new-cs2p-sam-app
-  PROD_ARTIFACTS_BUCKET: arn:aws:s3:::new-cs2p-deploy
+  PROD_ARTIFACTS_BUCKET: new-cs2p-deploy
   PROD_REGION: ap-southeast-1
 
 jobs:
