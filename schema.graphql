@@ -1,29 +1,27 @@
 #_____DATATYPES_____
-interface Entry {
-    id: Int!
-    title: String
-    content: String
+type Entry {
+  id: Int!
+  title: String
+  content: String
 }
 
 type Entries {
-  items: [Entry!]
+  items: [Entry!]!
 }
 
 type ResponseEntry {
-  data: Entry
+  data: Entry!
 }
 
 type ResponseEntries {
-  data: Entries
+  data: Entries!
 }
 
-#_____QUERIES_____
+schema {
+  query: Query
+}
+
 type Query {
-	getEntries(): ResponseEntries
-	getEntryById(id: Int!): ResponseEntry
-}
-
-#_____MUTATIONS_____
-type Mutation {
-	
+  getEntries: ResponseEntries!
+  getEntryById(id: Int!): ResponseEntry!
 }
