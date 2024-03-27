@@ -1,0 +1,29 @@
+#_____DATATYPES_____
+interface Entry {
+    id: Int!
+    title: String
+    content: String
+}
+
+type Entries {
+  items: [Entry!]
+}
+
+type ResponseEntry {
+  data: Entry
+}
+
+type ResponseEntries {
+  data: Entries
+}
+
+#_____QUERIES_____
+type Query {
+	getEntries(): ResponseEntries
+	getEntryById(id: Int!): ResponseEntry
+}
+
+#_____MUTATIONS_____
+type Mutation {
+	
+}
