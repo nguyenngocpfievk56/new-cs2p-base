@@ -18,12 +18,14 @@ Resources:
     GetEntriesFunction:
         Type: AWS::Serverless::Function
         Properties:
+            FunctionName: !Sub "${PrefixLetters}_CS2P_BASE_GetEntries"
             CodeUri: src/entry/getEntries
             # Layers:
             #     - !Ref AppCommons
     GetEntryByIdFunction:
         Type: AWS::Serverless::Function
         Properties:
+            FunctionName: !Sub "${PrefixLetters}_CS2P_BASE_GetEntryById"
             CodeUri: src/entry/getEntryById
             # Layers:
             #     - !Ref AppCommons
@@ -70,7 +72,7 @@ Resources:
     GraphQLApi:
         Type: AWS::AppSync::GraphQLApi
         Properties:
-            Name: !Sub "${PrefixLetters}_CS3_GraphQL"
+            Name: !Sub "${PrefixLetters}_CS2P_BASE_GraphQL"
             AuthenticationType: OPENID_CONNECT
             OpenIDConnectConfig:
                 ClientId: "AkNRE1qjj3nSef4AjwItuL4NrtMKx6Tn"
