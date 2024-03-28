@@ -5,16 +5,12 @@ type Entry {
   content: String
 }
 
-type Entries {
-  items: [Entry!]!
-}
-
 type ResponseEntry {
   data: Entry!
 }
 
 type ResponseEntries {
-  data: Entries!
+  data: [Entry!]
 }
 
 schema {

@@ -6,10 +6,7 @@ export const lambdaHandler = async (event, _) => {
     };
 
     const response = {
-        statusCode: 200,
-        body: JSON.stringify({
-            data: data
-        }),
+        data: data
     };
     return response;
 };
