@@ -33,7 +33,7 @@ Resources:
     GetEntriesDataSource:
         Type: AWS::AppSync::DataSource
         Properties:
-            ApiId: !GetAtt MainGraphQLApi.ApiId
+            ApiId: !GetAtt GraphQLApi.ApiId
             Name: GetEntriesDataSource
             Type: AWS_LAMBDA
             ServiceRoleArn: !GetAtt AppSyncServiceRole.Arn
@@ -42,7 +42,7 @@ Resources:
     GetEntryByIdDataSource:
         Type: AWS::AppSync::DataSource
         Properties:
-            ApiId: !GetAtt MainGraphQLApi.ApiId
+            ApiId: !GetAtt GraphQLApi.ApiId
             Name: GetEntryByIdDataSource
             Type: AWS_LAMBDA
             ServiceRoleArn: !GetAtt AppSyncServiceRole.Arn
@@ -54,20 +54,20 @@ Resources:
     GetEntriesResolver:
         Type: AWS::AppSync::Resolver
         Properties:
-            ApiId: !GetAtt MainGraphQLApi.ApiId
+            ApiId: !GetAtt GraphQLApi.ApiId
             FieldName: getEntries
             TypeName: Query
             DataSourceName: !GetAtt GetEntriesDataSource.Name
     GetEntryByIdResolver:
         Type: AWS::AppSync::Resolver
         Properties:
-            ApiId: !GetAtt MainGraphQLApi.ApiId
+            ApiId: !GetAtt GraphQLApi.ApiId
             FieldName: getEntryById
             TypeName: Query
             DataSourceName: !GetAtt GetEntryByIdDataSource.Name
 
     #_____INIT GRAPHQL_____
-    MainGraphQLApi:
+    GraphQLApi:
         Type: AWS::AppSync::GraphQLApi
         Properties:
             Name: !Sub "${PrefixLetters}_CS3_GraphQL"
@@ -78,7 +78,7 @@ Resources:
     GraphQLSchema:
         Type: AWS::AppSync::GraphQLSchema
         Properties:
-            ApiId: !GetAtt MainGraphQLApi.ApiId
+            ApiId: !GetAtt GraphQLApi.ApiId
             DefinitionS3Location: "./schema.graphql"
 
     #_____LAYERS_____
